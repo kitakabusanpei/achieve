@@ -54,10 +54,15 @@ header {
  }
 }
 
-p#notice{ //#はpにあるid=notice
-  margin: 0px;
-  background-color: #fff;
+.flash {
+ color: white;
+ padding-top: 10px;
 }
+
+// p#notice{ //#はpにあるid=notice
+//   margin: 0px;
+//   background-color: #fff;
+// }
 
 .main-header {
  padding-bottom: 15%;
@@ -152,7 +157,3 @@ body {
  }
 }
 
-.flash {
- color: white;
- padding-top: 10px;
-}
