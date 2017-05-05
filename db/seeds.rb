@@ -17,7 +17,7 @@
 end
 
 n = 1
-while n <= 101
+while n <= 100
  Blog.create(
   title: "あああ",
   content: "hoge",
