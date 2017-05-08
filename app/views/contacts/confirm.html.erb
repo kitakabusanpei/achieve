@@ -10,7 +10,7 @@
    <p>内容:<%= @contact.content %></p>
    <%= f.submit "送信", class: 'btn btn-primary btn-block' %>
   <% end %>
-  
+
   <%= form_for(@contact, url: new_contact_path, method: 'get') do |f| %>
    <%= f.hidden_field :name %>
    <%= f.hidden_field :email %>
