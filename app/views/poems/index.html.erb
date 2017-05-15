@@ -1,0 +1,6 @@
+<h3>ポエム一覧</h3>
+<% @poems.each do |poem| %>
+  <p>タイトル：<%= poem.title %></p>
+  <p>内容：<%= poem.content %></p>
+  <p><%= link_to "詳細", poem %></p>
+<% end %>
