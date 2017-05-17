@@ -3,7 +3,6 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:edit, :update, :destroy]
   def index
     @blogs = Blog.all
-    binding.pry
   end
 
   def new

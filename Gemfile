@@ -44,6 +44,7 @@ group :development, :test do
   gem 'letter_opener_web'
   gem 'pry-rails'
   gem 'better_errors'
+  gem 'dotenv-rails'
 end
 
 gem 'twitter-bootstrap-rails'
@@ -54,3 +55,8 @@ gem 'faker'
 gem 'rails_admin', '~> 1.1.1'
 gem 'cancan'
 gem 'activeresource'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'carrierwave'
+gem 'rmagick'
