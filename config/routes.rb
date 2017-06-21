@@ -23,6 +23,11 @@ Rails.application.routes.draw do
 
  resources :poems, only: [:index, :show]
 
+ resources :blogs do
+   resources :comments
+   post :confirm, on: :collection
+ end
+
  root 'top#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
