@@ -8,4 +8,3 @@ class PoemsController < ApplicationController
   end
 
 end
-# binding.pry

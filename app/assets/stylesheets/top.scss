@@ -157,3 +157,30 @@ body {
  }
 }
 
+.user-image {
+  zoom: 150%;
+  max-width: 100px;
+  max-height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user-image-s{
+zoom: 200%;
+max-width: 50px;
+max-height: 50px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.user-followed{
+  padding-top: 20px;
+}
+
+.user-follower{
+  margin-bottom: 20px;
+}
+
+.back-followed{
+  margin-top: 20px;
+}

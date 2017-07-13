@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+    <h2><%= @user.name %>さんのフォローページ</h2>
+    <h3>フォローユーザー</h3>
+    <!-- 「自分」と「自分”を”フォローしている人」user.followed_usersでフォローしている人が取得できる -->
+    <%= render 'followed_form' %>
+  </div>
+
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 ">
+    <h3 class="user-follower">フォロワーユーザー</h3>
+    <!-- 「自分」と「自分”が”フォローしている人」user.followersでフォロワーが取得 -->
+    <%= render 'follower_form' %>
+  </div>
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 ">
+  <p><%= link_to "一覧画面にもどる", users_path, class: "btn btn-large btn-primary back-followed" %></p>
+  </div>
+</div>
