@@ -42,12 +42,13 @@ class BlogsController < ApplicationController
 
   def confirm
     @blog = Blog.new(blogs_params)
-    render :new if @blog.invalid?
+    render :new if @blog.invalid? # valid?/invalid?メソッドは、バリデーションを実行し、失敗したらfalse/trueを返します。
   end
 
   def show
     @comment = @blog.comments.build
     @comments = @blog.comments
+    Notification.find(params[:notification_id]).update(read: true) if params[:notification_id]
   end
 
   private

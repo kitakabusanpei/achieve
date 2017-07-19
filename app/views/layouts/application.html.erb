@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Achieve</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <% if user_signed_in? %>
+    <script>
+      var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>',{
+        cluster: 'ap1',
+        encrypted: true
+      });
+
+      // var channel = pusher.subscribe('test_channel');  ←test_channelに参加方法
+      var channel = pusher.subscribe("user_<%= current_user.id %>_channel");
+      channel.bind('comment_created', function(data) { // ←comment_createdeventのdataを取り出す
+        alert(data.message);
+      });
+      channel.bind('notification_created', function(data) {
+        $('#unread_count').html(data.unread_counts); // ←でid=unread_countの場所を、data.unread_countに書き換え
+      });
+    </script>
+  <% end %>
 </head>
 <body>
   <header>
@@ -29,6 +47,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to 'ユーザー一覧', users_path if user_signed_in? %></li>
+            <li><%= link_to "メッセージ", conversations_path %></li>
             <li><%= link_to "ブログ", blogs_path %></li>
             <li><%= link_to "ポエム", poems_path %></li>
           </ul>
@@ -36,6 +55,9 @@
         <% if user_signed_in? %>
          <li><%= link_to 'マイページ', edit_user_registration_path %></li>
          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+         <%= link_to notifications_index_path, class: "navbar-brand" do %>
+           <i class="fa fa-bell fa-1x"><span id="unread_count"><%= @notifications_count %></span></i>
+         <% end %>
         <% else %>
          <li><%= link_to 'ログイン', new_user_session_path %></li>
          <li><%= link_to 'サインアップ', new_user_registration_path %></li>
