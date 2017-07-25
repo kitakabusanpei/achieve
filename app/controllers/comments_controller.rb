@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @notification = @comment.notifications.build(user_id: @blog.user.id) # commentに紐付いた、notificationを作成
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to blog_path(@blog), notice: 'コメントを投稿しました。' }
+        format.html { redirect_to blog_path(@blog), notice: 'コメントを投稿しました。' } # （format.html）rake routesの.:formatのこと
         format.js { render :index }
 
         unless @comment.blog.user_id == current_user.id

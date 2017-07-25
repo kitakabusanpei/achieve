@@ -1,3 +1,4 @@
 $("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.blog.comments, blog: @comment.blog }) %>")
 $(':text').val('')
 $("p#notice_blog").html("<%= j(flash[:notice_blog]) %>");
+// $は関数　#(ハッシュ、シャープではない、♯←シャープ)
